@@ -6,7 +6,7 @@ import datetime
 
 class GeneratePDF(View):
     def get(selt, request, *args, **kwargs):
-        template = get_template('incoice.html')
+        template = get_template('pdfs/invoice.html')
         context = {
             'today': datetime.date.today(), 
             'amount': 39.99,
