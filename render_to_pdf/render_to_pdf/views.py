@@ -16,7 +16,11 @@ class GeneratePDF(View):
         html = template.render(context)
         pdf = render_to_pdf('pdfs/invoice.html', context)
         if pdf:
-            return HttpResponse(pdf, content_type='application/pdf')
+            response = HttpResponse(pdf, content_type='application/pdf')
+            filename = "Invoice_%s.pdf" %("12341231")
+            content = "inline; filename=%s" %(filename)
+            response['Content-Disposition'] = content
+            return response
         return HttpResponse("Not found")
 
 """
