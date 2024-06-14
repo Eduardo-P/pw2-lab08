@@ -14,7 +14,10 @@ class GeneratePDF(View):
             'invoice_number': 1233434,
         }
         html = template.render(context)
-        return HttpResponse(html)
+        pdf = render_to_pdf('pdfs/invoice.html', context)
+        if pdf:
+            return HttpResponse(pdf, content_type='application/pdf')
+        return HttpResponse("Not found")
 
 """
 def generate_view(request, *args, **kwargs):
