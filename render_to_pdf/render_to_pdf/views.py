@@ -15,3 +15,16 @@ class GeneratePDF(View):
         }
         html = template.render(context)
         return HttpResponse(html)
+
+"""
+def generate_view(request, *args, **kwargs):
+    template = get_template('incoice.html')
+    context = {
+        'today': datetime.date.today(), 
+        'amount': 39.99,
+        'customer_name': 'Cooper Mann',
+        'invoice_number': 1233434,
+    }
+    html = template.render(context)
+    return HttpResponse(html)
+"""
